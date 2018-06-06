@@ -61,3 +61,29 @@
 [07:31:09.037][-1][DEBUG][XTP:0]End to register quote service function 1.
 [07:31:09.148][-1][INFO][XTP:0]Begin to login to quote server 120.27.164.138:6002.
 [07:31:10.253][-1][ERROR][XTP:10200000]15005381 login to quote server 120.27.164.138:6002 failed.[OS:3]No such process[xtp_quote_private_api.cpp:834][XTP:1]get_recv_frame function failed(SOCKET ERROR).[xbase_login.cpp:212]
+[22:35:34.556][-1][INFO][XTP:0][init_log_file]:End: ../log/log/quote.log, api version : 1.1.16.20
+[22:35:34.556][-1][DEBUG][XTP:0]Begin to register quote service function.
+[22:35:34.556][-1][DEBUG][XTP:0]resgister service function ok(2250).
+[22:35:34.556][-1][DEBUG][XTP:0]resgister service function ok(2001).
+[22:35:34.556][-1][DEBUG][XTP:0]resgister service function ok(2002).
+[22:35:34.556][-1][DEBUG][XTP:0]resgister service function ok(2003).
+[22:35:34.556][-1][DEBUG][XTP:0]resgister service function ok(2200).
+[22:35:34.556][-1][DEBUG][XTP:0]resgister service function ok(2201).
+[22:35:34.556][-1][DEBUG][XTP:0]resgister service function ok(2202).
+[22:35:34.556][-1][DEBUG][XTP:0]resgister service function ok(2210).
+[22:35:34.556][-1][DEBUG][XTP:0]resgister service function ok(2211).
+[22:35:34.557][-1][DEBUG][XTP:0]resgister service function ok(2212).
+[22:35:34.557][-1][DEBUG][XTP:0]resgister service function ok(2011).
+[22:35:34.557][-1][DEBUG][XTP:0]resgister service function ok(51).
+[22:35:34.557][-1][DEBUG][XTP:0]resgister service function ok(53).
+[22:35:34.557][-1][DEBUG][XTP:0]resgister service function ok(9).
+[22:35:34.557][-1][DEBUG][XTP:0]resgister service function ok(2005).
+[22:35:34.557][-1][DEBUG][XTP:0]resgister service function ok(2006).
+[22:35:34.557][-1][DEBUG][XTP:0]resgister service function ok(2205).
+[22:35:34.557][-1][DEBUG][XTP:0]resgister service function ok(2206).
+[22:35:34.557][-1][DEBUG][XTP:0]resgister service function ok(2215).
+[22:35:34.557][-1][DEBUG][XTP:0]resgister service function ok(2216).
+[22:35:34.557][-1][DEBUG][XTP:0]resgister service function ok(2012).
+[22:35:34.557][-1][DEBUG][XTP:0]End to register quote service function 1.
+[22:35:34.678][-1][INFO][XTP:0]Begin to login to quote server 120.27.164.138:6002.
+[22:35:35.805][-1][ERROR][XTP:10200000]15005381 login to quote server 120.27.164.138:6002 failed.[OS:3]No such process[xtp_quote_private_api.cpp:834][XTP:1]get_recv_frame function failed(SOCKET ERROR).[xbase_login.cpp:212]

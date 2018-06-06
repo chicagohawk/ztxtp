@@ -13,6 +13,7 @@
 
 using namespace XTP::API;
 
+// We can subclass multiple SPIs from QuoteSpi
 class MyQuoteSpi : public QuoteSpi
 {
 public:
