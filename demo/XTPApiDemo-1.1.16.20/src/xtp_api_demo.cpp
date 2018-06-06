@@ -16,6 +16,7 @@
 #include "FileUtils.h"
 #include "xtp_quote_api.h"
 #include "quote_spi.h"
+#include "quote_demo.cpp"
 
 XTP::API::TraderApi* pUserApi;
 bool is_connected_ = false;
@@ -34,7 +35,9 @@ XTP_PROTOCOL_TYPE quote_protocol = XTP_PROTOCOL_UDP;
 
 int main()
 {
-
+    demoQuote();
+    return 0;
+    /*
 	FileUtils* fileUtils = new FileUtils();
 	if (!fileUtils->init())
 	{
@@ -66,6 +69,7 @@ int main()
 	quote_server_port = fileUtils->intForKey("quote_port");
 	quote_username = fileUtils->stdStringForKey("quote_user");
 	quote_password = fileUtils->stdStringForKey("quote_password");
+
 	quote_protocol = (XTP_PROTOCOL_TYPE)(fileUtils->intForKey("quote_protocol"));
 	int32_t quote_buffer_size = fileUtils->intForKey("quote_buffer_size");
 
@@ -88,6 +92,9 @@ int main()
 	loginResult_quote = pQuoteApi->Login(quote_server_ip.c_str(), quote_server_port, quote_username.c_str(), quote_password.c_str(), quote_protocol); 
 	if (loginResult_quote == 0)
 	{
+	    //xtp_trader_api.h: QueryAsset
+	    //xtp_trader_api.h, OnQueryAsset -> XTPQueryAssetRsp
+
 		//登录行情服务器成功后，订阅行情
 		int instrument_count = fileUtils->countForKey("quote_ticker.instrument");
 		int quote_exchange = fileUtils->intForKey("quote_ticker.exchange");
@@ -257,4 +264,6 @@ int main()
 	}
 
 	return 0;
+     */
+
 }

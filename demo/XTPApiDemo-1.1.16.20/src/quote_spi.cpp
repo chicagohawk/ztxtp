@@ -39,35 +39,38 @@ void MyQuoteSpi::OnUnSubMarketData(XTPST *ticker, XTPRI *error_info, bool is_las
 
 void MyQuoteSpi::OnDepthMarketData(XTPMD * market_data, int64_t bid1_qty[], int32_t bid1_count, int32_t max_bid1_count, int64_t ask1_qty[], int32_t ask1_count, int32_t max_ask1_count)
 {
+	cout << "OnDepthMarketData -----------" << endl;
 }
 
 void MyQuoteSpi::OnSubOrderBook(XTPST *ticker, XTPRI *error_info, bool is_last)
 {
-
+	cout << "OnSubOrderBook --------" << endl;
 }
 
 void MyQuoteSpi::OnUnSubOrderBook(XTPST *ticker, XTPRI *error_info, bool is_last)
 {
-
+	cout << "OnUnSubOrderBook ---------" << endl;
 }
 
 void MyQuoteSpi::OnSubTickByTick(XTPST *ticker, XTPRI *error_info, bool is_last)
 {
-
+	cout << "OnSubTickByTick ---------" << endl;
 }
 
 void MyQuoteSpi::OnUnSubTickByTick(XTPST * ticker, XTPRI * error_info, bool is_last)
 {
+	cout << "OnUnSubTickByTick --------" << endl;
 }
 
 void MyQuoteSpi::OnOrderBook(XTPOB *order_book)
 {
-
+	cout << "OnOrderBook ----------" << endl;
+	cout << "lastPrice: " << order_book->last_price << endl;
 }
 
 void MyQuoteSpi::OnTickByTick(XTPTBT *tbt_data)
 {
-
+	cout << "OnTickByTick ---------" << endl;
 }
 
 void MyQuoteSpi::OnQueryAllTickers(XTPQSI * ticker_info, XTPRI * error_info, bool is_last)
@@ -77,32 +80,37 @@ void MyQuoteSpi::OnQueryAllTickers(XTPQSI * ticker_info, XTPRI * error_info, boo
 
 void MyQuoteSpi::OnSubscribeAllMarketData(XTPRI * error_info)
 {
+	cout << "OnSubscribeAllMarketData --------" << endl;
 }
 
 void MyQuoteSpi::OnUnSubscribeAllMarketData(XTPRI *error_info)
 {
-
+	cout << "OnUnSubscribeAllMarketData --------" << endl;
 }
 
 void MyQuoteSpi::OnSubscribeAllOrderBook(XTPRI *error_info)
 {
-
+	cout << "OnSubscribeAllOrderBook --------" << endl;
 }
 
 void MyQuoteSpi::OnUnSubscribeAllOrderBook(XTPRI * error_info)
 {
+	cout << "OnUnSubscribeAllOrderBook --------" << endl;
 }
 
 void MyQuoteSpi::OnSubscribeAllTickByTick(XTPRI * error_info)
 {
+	cout << "OnSubscribeAllTickByTick --------" << endl;
 }
 
 void MyQuoteSpi::OnUnSubscribeAllTickByTick(XTPRI * error_info)
 {
+	cout << "OnUnSubscribeAllTickByTick --------" << endl;
 }
 
 void MyQuoteSpi::OnQueryTickersPriceInfo(XTPTPI * ticker_info, XTPRI * error_info, bool is_last)
 {
+	cout << "OnQueryTickersPriceInfo --------" << endl;
 }
 
 bool MyQuoteSpi::IsErrorRspInfo(XTPRI *pRspInfo)
