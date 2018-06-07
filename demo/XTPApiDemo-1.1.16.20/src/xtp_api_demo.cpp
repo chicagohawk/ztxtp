@@ -16,11 +16,12 @@
 #include "FileUtils.h"
 #include "xtp_quote_api.h"
 #include "quote_spi.h"
-#include "quote_demo.cpp"
 
-XTP::API::TraderApi* pUserApi;
-bool is_connected_ = false;
-std::string trade_server_ip;
+// global var
+
+XTP::API::TraderApi* pUserApi;//yes
+bool is_connected_ = false;//yes
+std::string trade_server_ip;//yes
 int trade_server_port;
 uint64_t session_id_ = 0;
 std::map<uint64_t,uint64_t> map_session;
@@ -35,105 +36,59 @@ XTP_PROTOCOL_TYPE quote_protocol = XTP_PROTOCOL_UDP;
 
 int main()
 {
-    demoQuote();
-    return 0;
+
+    /// Quote API setup
+    uint8_t client_id = 1;
+    std::string log_path("/Users/hanchen/Documents/XTP_API_20180305_1.1.16.20-clang/"
+                    "demo/XTPApiDemo-1.1.16.20/log/");
+    std::string account_key("b8aa7173bba3470e390d787219b2112e");
+    std::string user_name("15005381");
+    std::string password("XOjMGSZ4");
+    std::string quote_ip("120.27.164.138");
+    int quote_port = 6002;
+    int quote_buffer_size = 128;
+    int heart_beat_interval = 15;
+    XTP_PROTOCOL_TYPE quote_protocol = XTP_PROTOCOL_TCP;
+
+    XTP::API::QuoteApi *qApi = XTP::API::QuoteApi::CreateQuoteApi(
+            client_id, log_path.c_str());
+
+    MyQuoteSpi *qSpi = new MyQuoteSpi();
+    qApi->RegisterSpi(qSpi);
+
+    qApi->SetUDPBufferSize((uint32_t) quote_buffer_size);
+    qApi->SetHeartBeatInterval((uint32_t) heart_beat_interval);
+    std::cout << "API version: " << qApi->GetApiVersion() << std::endl;
+
+    int login_result = qApi->Login(quote_ip.c_str(), quote_port, user_name.c_str(),
+                                   password.c_str(), quote_protocol);
+    int max_try = 3;
+    for (int i = 0; i < max_try && login_result != 0; i++) {
+        switch (login_result) {
+            case -3:
+                std::cout << "Login error: input error" << std::endl;
+                break;
+            case -2:
+                std::cout << "Login error: repeated login" << std::endl;
+                break;
+            case -1:
+                std::cout << "Login error: retrieve last error" << std::endl;
+                qApi->GetApiLastError();  break;
+        }
+    }
+    std::cout << "Login successful" << std::endl;
+    std::cout << "Trading day: " << qApi->GetTradingDay() << std::endl;
+
+    /// Ticker setup
+    char **ticker = new char*[0];
+    ticker[0] = new char [64];
+    std::strcpy(ticker[0], std::string("600120").c_str());
+
+    XTP_EXCHANGE_TYPE quote_exchange = XTP_EXCHANGE_SH;
+    qApi->SubscribeOrderBook(ticker, 1, quote_exchange);
+
+
     /*
-	FileUtils* fileUtils = new FileUtils();
-	if (!fileUtils->init())
-	{
-		std::cout << "The config.json file parse error." << std::endl;
-#ifdef _WIN32
-		system("pause");
-#endif
-
-		return 0;
-	}
-
-	//读取交易配置
-	trade_server_ip = fileUtils->stdStringForKey("trade_ip");
-	trade_server_port = fileUtils->intForKey("trade_port");
-	int out_count = fileUtils->intForKey("out_count");
-	bool auto_save = fileUtils->boolForKey("auto_save");
-	int client_id = fileUtils->intForKey("client_id");
-	int account_count = fileUtils->countForKey("account");
-	int resume_type = fileUtils->intForKey("resume_type");
-	std::string account_key = fileUtils->stdStringForKey("account_key");
-#ifdef _WIN32
-	std::string filepath = fileUtils->stdStringForKey("path");
-#else
-	std::string filepath = fileUtils->stdStringForKey("path_linux");
-#endif // _WIN32
-
-	//读取行情配置
-	quote_server_ip = fileUtils->stdStringForKey("quote_ip");
-	quote_server_port = fileUtils->intForKey("quote_port");
-	quote_username = fileUtils->stdStringForKey("quote_user");
-	quote_password = fileUtils->stdStringForKey("quote_password");
-
-	quote_protocol = (XTP_PROTOCOL_TYPE)(fileUtils->intForKey("quote_protocol"));
-	int32_t quote_buffer_size = fileUtils->intForKey("quote_buffer_size");
-
-	//读取心跳超时配置
-	int32_t heat_beat_interval = fileUtils->intForKey("hb_interval");
-
-
-	//初始化行情api
-	XTP::API::QuoteApi* pQuoteApi = XTP::API::QuoteApi::CreateQuoteApi(client_id, filepath.c_str());
-	MyQuoteSpi* pQuoteSpi = new MyQuoteSpi();
-	pQuoteApi->RegisterSpi(pQuoteSpi);
-
-	//设定行情服务器超时时间，单位为秒
-	pQuoteApi->SetHeartBeatInterval(heat_beat_interval); //此为1.1.16新增接口
-	//设定行情本地缓存大小，单位为MB
-	pQuoteApi->SetUDPBufferSize(quote_buffer_size);//此为1.1.16新增接口
-
-	int loginResult_quote = -1;
-	//登录行情服务器,自1.1.16开始，行情服务器支持UDP连接，推荐使用UDP
-	loginResult_quote = pQuoteApi->Login(quote_server_ip.c_str(), quote_server_port, quote_username.c_str(), quote_password.c_str(), quote_protocol); 
-	if (loginResult_quote == 0)
-	{
-	    //xtp_trader_api.h: QueryAsset
-	    //xtp_trader_api.h, OnQueryAsset -> XTPQueryAssetRsp
-
-		//登录行情服务器成功后，订阅行情
-		int instrument_count = fileUtils->countForKey("quote_ticker.instrument");
-		int quote_exchange = fileUtils->intForKey("quote_ticker.exchange");
-
-		//从配置文件中读取需要订阅的股票
-		char* *allInstruments = new char*[instrument_count];
-		for (int i = 0; i < instrument_count; i++) {
-			allInstruments[i] = new char[7];
-			std::string instrument = fileUtils->stdStringForKey("quote_ticker.instrument[%d]", i);
-			strcpy(allInstruments[i], instrument.c_str());
-		}
-
-		//开始订阅
-		pQuoteApi->SubscribeMarketData(allInstruments, instrument_count, (XTP_EXCHANGE_TYPE)quote_exchange);
-
-		//释放
-		for (int i = 0; i < instrument_count; i++) {
-			delete[] allInstruments[i];
-			allInstruments[i] = NULL;
-		}
-
-		delete[] allInstruments;
-		allInstruments = NULL;
-	}
-	else
-	{
-		//登录失败，获取失败原因
-		XTPRI* error_info = pQuoteApi->GetApiLastError();
-		std::cout << "Login to server error, " << error_info->error_id << " : " << error_info->error_msg << std::endl;
-	
-	}
-
-
-	if (account_count > 0)
-	{
-		//针对多用户的情况
-		orderList = new XTPOrderInsertInfo[account_count];
-	}
-	
 
 	//初始化交易类Api
 	pUserApi = XTP::API::TraderApi::CreateTraderApi(client_id,filepath.c_str());			// 创建UserApi
