@@ -23,6 +23,7 @@ src/CMakeFiles/XTPApiDemo.dir/FileUtils.cpp.o: include/rapidjson/reader.h
 
 src/CMakeFiles/XTPApiDemo.dir/quote_spi.cpp.o: src/quote_spi.cpp
 src/CMakeFiles/XTPApiDemo.dir/quote_spi.cpp.o: src/quote_spi.h
+src/CMakeFiles/XTPApiDemo.dir/quote_spi.cpp.o: src/utils.h
 src/CMakeFiles/XTPApiDemo.dir/quote_spi.cpp.o: api/xoms_api_fund_struct.h
 src/CMakeFiles/XTPApiDemo.dir/quote_spi.cpp.o: api/xoms_api_struct.h
 src/CMakeFiles/XTPApiDemo.dir/quote_spi.cpp.o: api/xquote_api_struct.h
@@ -58,6 +59,10 @@ src/CMakeFiles/XTPApiDemo.dir/trade_spi.cpp.o: include/rapidjson/msinttypes/intt
 src/CMakeFiles/XTPApiDemo.dir/trade_spi.cpp.o: include/rapidjson/msinttypes/stdint.h
 src/CMakeFiles/XTPApiDemo.dir/trade_spi.cpp.o: include/rapidjson/rapidjson.h
 src/CMakeFiles/XTPApiDemo.dir/trade_spi.cpp.o: include/rapidjson/reader.h
+
+src/CMakeFiles/XTPApiDemo.dir/utils.cpp.o: src/utils.cpp
+src/CMakeFiles/XTPApiDemo.dir/utils.cpp.o: api/xtp_api_data_type.h
+src/CMakeFiles/XTPApiDemo.dir/utils.cpp.o: api/xtp_api_struct_common.h
 
 src/CMakeFiles/XTPApiDemo.dir/xtp_api_demo.cpp.o: src/FileUtils.h
 src/CMakeFiles/XTPApiDemo.dir/xtp_api_demo.cpp.o: src/quote_spi.h
