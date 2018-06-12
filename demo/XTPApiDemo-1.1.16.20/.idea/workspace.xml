@@ -13,29 +13,10 @@
   <component name="ChangeListManager">
     <list default="true" id="4f41e76a-c4c4-4442-8e74-f6368c7ed765" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeFiles/Progress/1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeFiles/Progress/2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeFiles/Progress/3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeFiles/Progress/4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeFiles/Progress/5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeFiles/Progress/6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeFiles/Progress/count.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/XTPApiDemo" beforeDir="false" afterPath="$PROJECT_DIR$/api/XTPApiDemo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/src/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CMakeFiles/XTPApiDemo.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/src/CMakeFiles/XTPApiDemo.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CMakeFiles/XTPApiDemo.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/src/CMakeFiles/XTPApiDemo.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CMakeFiles/XTPApiDemo.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/src/CMakeFiles/XTPApiDemo.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CMakeFiles/XTPApiDemo.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/src/CMakeFiles/XTPApiDemo.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CMakeFiles/XTPApiDemo.dir/quote_spi.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/src/CMakeFiles/XTPApiDemo.dir/quote_spi.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CMakeFiles/XTPApiDemo.dir/xtp_api_demo.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/src/CMakeFiles/XTPApiDemo.dir/xtp_api_demo.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/src/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/quote_demo.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quote_spi.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/quote_spi.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/xtp_api_demo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/xtp_api_demo.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,47 +33,8 @@
           <file leaf-file-name="xtp_api_demo.cpp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/xtp_api_demo.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="450">
-                  <caret line="30" column="27" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/../../.gitignore">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="45">
-                  <caret line="3" selection-start-line="3" selection-end-line="3" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="config.json" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/api/config.json">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="435">
-                  <caret line="29" column="2" selection-start-line="29" selection-start-column="2" selection-end-line="29" selection-end-column="2" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="quote_spi.h" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/quote_spi.h">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="240">
-                  <caret line="17" selection-start-line="17" selection-end-line="17" />
-                  <folding>
-                    <element signature="e#114#134#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="xtp_api_struct_common.h" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/api/xtp_api_struct_common.h">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="525">
-                  <caret line="35" column="2" selection-start-line="35" selection-start-column="2" selection-end-line="35" selection-end-column="2" />
+                <state relative-caret-position="541">
+                  <caret line="88" column="75" selection-start-line="88" selection-start-column="75" selection-end-line="88" selection-end-column="75" />
                 </state>
               </provider>
             </entry>
@@ -100,73 +42,108 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="xquote_api_struct.h" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/api/xquote_api_struct.h">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="199">
-                  <caret line="218" selection-start-line="218" selection-end-line="218" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="FileUtils.cpp" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/FileUtils.cpp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="487">
-                  <caret line="87" column="25" selection-start-line="87" selection-start-column="25" selection-end-line="87" selection-end-column="25" />
-                  <folding>
-                    <element signature="e#0#22#0" expanded="true" />
-                    <element signature="e#1654#1695#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="xtp_quote_api.h" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/api/xtp_quote_api.h">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="224">
-                  <caret line="287" column="28" lean-forward="true" selection-start-line="287" selection-start-column="28" selection-end-line="287" selection-end-column="28" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="quote_spi.cpp" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/quote_spi.cpp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="255">
-                  <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
-                  <folding>
-                    <element signature="e#0#22#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="xtp_trader_api.h" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/api/xtp_trader_api.h">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="416">
-                  <caret line="226" column="25" selection-start-line="226" selection-start-column="25" selection-end-line="226" selection-end-column="25" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
+        <splitter split-orientation="vertical" split-proportion="0.5">
+          <split-first>
+            <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+              <file leaf-file-name="xtp_quote_api.h" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/api/xtp_quote_api.h">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="142">
+                      <caret line="58" column="33" selection-start-line="58" selection-start-column="33" selection-end-line="58" selection-end-column="33" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="xoms_api_struct.h" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/api/xoms_api_struct.h">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="583">
+                      <caret line="89" column="16" selection-start-line="89" selection-start-column="16" selection-end-line="89" selection-end-column="16" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="quote_spi.cpp" pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/src/quote_spi.cpp">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="300">
+                      <caret line="48" selection-start-line="48" selection-end-line="48" />
+                      <folding>
+                        <element signature="e#0#22#0" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="xtp_trader_api.h" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/api/xtp_trader_api.h">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="-4470">
+                      <caret line="41" column="34" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="xtp_api_struct.h" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/api/xtp_api_struct.h">
+                  <provider selected="true" editor-type-id="text-editor" />
+                </entry>
+              </file>
+              <file leaf-file-name="trade_spi.h" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/trade_spi.h">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="60">
+                      <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="quote_spi.h" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/quote_spi.h">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="120">
+                      <caret line="9" column="15" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
+                      <folding>
+                        <element signature="e#114#134#0" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="trade_spi.cpp" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/trade_spi.cpp">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="-318">
+                      <caret line="17" column="27" lean-forward="true" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+                      <folding>
+                        <element signature="e#0#22#0" expanded="true" />
+                        <element signature="e#8319#8470#0" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-first>
+          <split-second>
+            <leaf>
+              <file leaf-file-name="xquote_api_struct.h" pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/api/xquote_api_struct.h">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="-549">
+                      <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-second>
+        </splitter>
       </split-second>
     </splitter>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>xtp_price_type</find>
-      <find>xtp_market_</find>
-      <find>business_type</find>
-      <find>xtp_side_type</find>
-      <find>orderCancel</find>
-      <find>XTPOrderInfo</find>
-      <find>cancel</find>
-      <find>OnOrderEve</find>
       <find>xtp_business</find>
       <find>createQuoteApi</find>
       <find>resume_type</find>
@@ -189,6 +166,14 @@
       <find>extern bool</find>
       <find>trade_server_ip</find>
       <find>createtraderapi</find>
+      <find>QuoteApi</find>
+      <find>OnDepthMar</find>
+      <find>XTPST</find>
+      <find>xquote_api_struct</find>
+      <find>LOG_SHOW</find>
+      <find>xtp_api_demo</find>
+      <find>XTP</find>
+      <find>XTPMD</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -199,9 +184,9 @@
       <list>
         <option value="$PROJECT_DIR$/src/QueryL1Snapshots.cpp" />
         <option value="$PROJECT_DIR$/src/quote_spi.h" />
-        <option value="$PROJECT_DIR$/src/quote_spi.cpp" />
         <option value="$PROJECT_DIR$/src/quote_demo.cpp" />
         <option value="$PROJECT_DIR$/src/xtp_api_demo.cpp" />
+        <option value="$PROJECT_DIR$/src/quote_spi.cpp" />
       </list>
     </option>
   </component>
@@ -282,7 +267,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16814000" />
+    <option name="totallyTimeSpent" value="18455000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="827" extended-state="0" />
@@ -291,9 +276,10 @@
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49535194" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection Results" order="10" weight="0.32934928" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32934928" />
       <window_info id="Structure" order="1" sideWeight="0.5046481" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
@@ -302,13 +288,21 @@
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49535194" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="Structure" order="1" sideWeight="0.5046481" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Inspection Results" order="9" weight="0.32934928" />
       <window_info anchor="bottom" id="Python Console" order="7" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="CMake" order="9" />
+      <window_info id="Favorites" order="2" side_tool="true" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -323,7 +317,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/xtp_api_demo_backup.cpp" />
     <entry file="file://$PROJECT_DIR$/api/xtp_quote_api.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="585">
@@ -529,8 +522,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/xoms_api_struct.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4534">
-          <caret line="54" column="16" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
+        <state relative-caret-position="583">
+          <caret line="89" column="16" selection-start-line="89" selection-start-column="16" selection-end-line="89" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -578,8 +571,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/trade_spi.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+        <state relative-caret-position="60">
+          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -587,13 +580,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
           <caret line="29" column="2" selection-start-line="29" selection-start-column="2" selection-end-line="29" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/xquote_api_struct.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="218" selection-start-line="218" selection-end-line="218" />
         </state>
       </provider>
     </entry>
@@ -605,51 +591,63 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/xtp_api_demo_backup.cpp" />
+    <entry file="file://$PROJECT_DIR$/src/quote_demo.cpp" />
+    <entry file="file://$PROJECT_DIR$/api/xtp_trader_api.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4470">
+          <caret line="41" column="34" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/xtp_quote_api.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="58" column="33" selection-start-line="58" selection-start-column="33" selection-end-line="58" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/quote_spi.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="120">
+          <caret line="9" column="15" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
           <folding>
             <element signature="e#114#134#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/quote_demo.cpp">
+    <entry file="file://$PROJECT_DIR$/api/xquote_api_struct.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+        <state relative-caret-position="-549">
+          <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/xtp_quote_api.h">
+    <entry file="file://$PROJECT_DIR$/src/trade_spi.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="287" column="28" lean-forward="true" selection-start-line="287" selection-start-column="28" selection-end-line="287" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/quote_spi.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+        <state relative-caret-position="-318">
+          <caret line="17" column="27" lean-forward="true" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
+            <element signature="e#8319#8470#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/xtp_trader_api.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="226" column="25" selection-start-line="226" selection-start-column="25" selection-end-line="226" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/xtp_api_demo.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="27" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
+        <state relative-caret-position="541">
+          <caret line="88" column="75" selection-start-line="88" selection-start-column="75" selection-end-line="88" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/quote_spi.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

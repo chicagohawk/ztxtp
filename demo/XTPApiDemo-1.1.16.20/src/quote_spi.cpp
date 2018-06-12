@@ -39,7 +39,12 @@ void MyQuoteSpi::OnUnSubMarketData(XTPST *ticker, XTPRI *error_info, bool is_las
 
 void MyQuoteSpi::OnDepthMarketData(XTPMD * market_data, int64_t bid1_qty[], int32_t bid1_count, int32_t max_bid1_count, int64_t ask1_qty[], int32_t ask1_count, int32_t max_ask1_count)
 {
-	cout << "OnDepthMarketData -----------" << endl;
+//	cout << "OnDepthMarketData -----------" << endl;
+    cout << market_data->last_price << " | ";
+    cout << market_data->bid[1] << "," << market_data->bid[0] << " ; ";
+    cout << market_data->ask[0] << "," << market_data->ask[1] << " | ";
+    cout << market_data->bid_qty[1] << "," << market_data->bid_qty[0] << " ; ";
+    cout << market_data->ask_qty[0] << "," << market_data->ask_qty[1] << endl;
 }
 
 void MyQuoteSpi::OnSubOrderBook(XTPST *ticker, XTPRI *error_info, bool is_last)
