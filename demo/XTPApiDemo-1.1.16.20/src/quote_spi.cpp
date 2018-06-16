@@ -1,7 +1,6 @@
 #include "quote_spi.h"
 #include <iostream>
 #include <stdio.h>
-#include "utils.h"
 using namespace std;
 
 
@@ -40,9 +39,7 @@ void MyQuoteSpi::OnUnSubMarketData(XTPST *ticker, XTPRI *error_info, bool is_las
 
 void MyQuoteSpi::OnDepthMarketData(XTPMD * market_data, int64_t bid1_qty[], int32_t bid1_count, int32_t max_bid1_count, int64_t ask1_qty[], int32_t ask1_count, int32_t max_ask1_count)
 {
-    int year, mon, day, hour, min, sec, msec;
-    uint64ToDateTime(market_data->data_time, year, mon, day, hour, min, sec, msec);
-    cout << hour << ":" << min << ":" << sec << "." << msec << " >> ";
+    mitpt = (market_data->bid[0] + market_data->ask[0]) * .5;
     cout << market_data->last_price << " | ";
     cout << market_data->bid[1] << "," << market_data->bid[0] << " ; ";
     cout << market_data->ask[0] << "," << market_data->ask[1] << " | ";

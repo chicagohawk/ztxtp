@@ -24,7 +24,7 @@ extern std::string trade_server_ip;
 extern int trade_server_port;
 extern uint64_t session_id_;
 extern std::map<uint64_t, uint64_t> map_session;
-extern uint64_t* session_arrary;
+extern uint64_t* session_array;
 extern FileUtils* fileUtils;
 extern XTPOrderInsertInfo* orderList;
 
@@ -166,7 +166,7 @@ void MyTraderSpi::OnDisconnected(uint64_t session_id, int reason)
 	map_session.insert(std::make_pair(temp_session_id_, aid));
 	session_id_ = temp_session_id_;
 	is_connected_ = true;
-	session_arrary[aid] = temp_session_id_;
+	session_array[aid] = temp_session_id_;
 }
 
 void MyTraderSpi::OnError(XTPRI *error_info)
@@ -231,7 +231,7 @@ void MyTraderSpi::OnOrderEvent(XTPOrderInfo *order_info, XTPRI *error_info, uint
 	{
 	case XTP_ORDER_STATUS_NOTRADEQUEUEING:
 	{
-		pUserApi->CancelOrder(order_info->order_xtp_id, session_arrary[order_info->order_client_id]);
+		pUserApi->CancelOrder(order_info->order_xtp_id, session_array[order_info->order_client_id]);
 		break;
 	}
 	case XTP_ORDER_STATUS_ALLTRADED:
@@ -240,7 +240,7 @@ void MyTraderSpi::OnOrderEvent(XTPOrderInfo *order_info, XTPRI *error_info, uint
 	case XTP_ORDER_STATUS_REJECTED:
 	{
 		int i = order_info->order_client_id;
-		pUserApi->InsertOrder(&(orderList[i]), session_arrary[i]);
+		pUserApi->InsertOrder(&(orderList[i]), session_array[i]);
 		break;
 	}
 
@@ -360,12 +360,7 @@ void MyTraderSpi::OnQueryPosition(XTPQueryStkPositionRsp * investor_position, XT
 
 	if (save_to_file_)
 	{
-#ifdef WIN32
-		SYSTEMTIME wtm;
-		GetLocalTime(&wtm);
-		fout_position << "time:" << wtm.wSecond << "." << wtm.wMilliseconds << ",";
 
-#else
 		struct timeval start;
 		gettimeofday(&start, 0);
 
@@ -374,9 +369,6 @@ void MyTraderSpi::OnQueryPosition(XTPQueryStkPositionRsp * investor_position, XT
 		lt = time(NULL);
 		ptr = localtime(&lt);
 		fout_position << "[" << ptr->tm_hour << ":" << ptr->tm_min << ":" << ptr->tm_sec << "." << start.tv_usec << "],";
-
-#endif // WIN32
-
 
 
 		fout_position << "request_id:" << request_id << ",is_last:" << is_last << ",";
@@ -388,16 +380,12 @@ void MyTraderSpi::OnQueryPosition(XTPQueryStkPositionRsp * investor_position, XT
 
 void MyTraderSpi::OnQueryAsset(XTPQueryAssetRsp * trading_account, XTPRI * error_info, int request_id, bool is_last, uint64_t session_id)
 {
-// 	cout << "------------------- OnQueryTradingAccount-----------" << endl;
-// 	cout << "OnQueryTradingAccount: " << trading_account->buying_power << ":" << trading_account->fund_buy_amount << ":" << request_id << ":" << is_last << endl;
+ 	cout << "------------------- OnQueryTradingAccount-----------" << endl;
+ 	cout << "OnQueryTradingAccount: " << trading_account->buying_power << ":" << trading_account->fund_buy_amount << ":" << request_id << ":" << is_last << endl;
 
 	if (save_to_file_)
 	{
-#ifdef WIN32
-		SYSTEMTIME wtm;
-		GetLocalTime(&wtm);
-		fout_fund << "time:" << wtm.wSecond << "." << wtm.wMilliseconds << ",";
-#else
+
 		struct timeval start;
 		gettimeofday(&start, 0);
 		struct tm *ptr;
@@ -405,7 +393,7 @@ void MyTraderSpi::OnQueryAsset(XTPQueryAssetRsp * trading_account, XTPRI * error
 		lt = time(NULL);
 		ptr = localtime(&lt);
 		fout_fund << "[" << ptr->tm_hour << ":" << ptr->tm_min << ":" << ptr->tm_sec << "." << start.tv_usec << "],";
-#endif // WIN32
+
 		fout_fund << "request_id:" << request_id << ",total_asset:" << setprecision(14) << trading_account->total_asset << ",security_asset:" << setprecision(16) << trading_account->security_asset;
 		fout_fund << ",buying_power:" << setprecision(16) << trading_account->buying_power << ",fund_buy_amount:" << setprecision(16) << trading_account->fund_buy_amount;
 		fout_fund << ",fund_buy_fee:" << setprecision(16) << trading_account->fund_buy_fee << ",fund_sell_amount:" << setprecision(16) << trading_account->fund_sell_amount << ",fund_sell_fee:" << setprecision(16) << trading_account->fund_sell_fee << endl;
