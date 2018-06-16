@@ -28,6 +28,8 @@ extern uint64_t* session_arrary;
 extern FileUtils* fileUtils;
 extern XTPOrderInsertInfo* orderList;
 
+extern int num_orders_sent;
+
 MyTraderSpi::MyTraderSpi()
 {
 	order_num = 0;
@@ -180,11 +182,11 @@ void MyTraderSpi::OnOrderEvent(XTPOrderInfo *order_info, XTPRI *error_info, uint
 {
 #if _IS_LOG_SHOW_
 	cout << "------------------- OnOrderEvent-----------" << endl;
-	cout << "Order_Client_ID:" << pOrder->order_client_id << endl;
-	cout << "Order_XTP_ID:" << pOrder->order_xtp_id << endl;
-	cout << "Order_status:" << pOrder->order_status << endl;
-	cout << "Order_submit_status:" << pOrder->order_submit_status << endl;
-	cout << "update time:" << pOrder->update_time << endl;
+	cout << "Order_Client_ID:" << order_info->order_client_id << endl;
+	cout << "Order_XTP_ID:" << order_info->order_xtp_id << endl;
+	cout << "Order_status:" << order_info->order_status << endl;
+	cout << "Order_submit_status:" << order_info->order_submit_status << endl;
+	cout << "update time:" << order_info->update_time << endl;
 	if (pRspInfo)
 	{
 		cout << "Error:" << pRspInfo->error_id << endl;
@@ -199,7 +201,6 @@ void MyTraderSpi::OnOrderEvent(XTPOrderInfo *order_info, XTPRI *error_info, uint
 // 		int32_t client = pUserApi->GetClientIDByXTPID(order_info->order_xtp_id);
 // 		cout << "Client id:" << client << ", Account:" << pUserApi->GetAccountByXTPID(order_info->order_xtp_id) << endl;
 
-		cout << "!!!!!!!!!!!!!!!!!!!!! OnOrderEvent total count:" << order_num << "!!!!!!!!!!!!!!!!!!!!!!!!!!!!" << endl;
 	}
 
 	if (save_to_file_)
@@ -240,7 +241,7 @@ void MyTraderSpi::OnOrderEvent(XTPOrderInfo *order_info, XTPRI *error_info, uint
 	case XTP_ORDER_STATUS_REJECTED:
 	{
 		int i = order_info->order_client_id;
-		pUserApi->InsertOrder(&(orderList[i]), session_arrary[i]);
+//		pUserApi->InsertOrder(&(orderList[i]), session_arrary[i]);
 		break;
 	}
 

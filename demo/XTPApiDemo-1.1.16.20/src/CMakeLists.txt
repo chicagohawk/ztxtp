@@ -19,5 +19,5 @@ set(XTP_BASE_LIBS
 
 # set output path
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/api)
-add_executable(XTPApiDemo ${APP_SRC} ${APP_HEAD})
+add_executable(XTPApiDemo ${APP_SRC} ${APP_HEAD} strategy.cpp strategy.h)
 target_link_libraries(XTPApiDemo ${XTP_BASE_LIBS})
