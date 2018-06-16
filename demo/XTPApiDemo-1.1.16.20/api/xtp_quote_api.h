@@ -31,6 +31,7 @@
 * \author 中泰证券股份有限公司
 * \date 十月 2015
 */
+
 namespace XTP {
 	namespace API {
 		class QuoteSpi

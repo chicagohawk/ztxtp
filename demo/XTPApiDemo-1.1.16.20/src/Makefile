@@ -225,6 +225,33 @@ quote_spi.cpp.s:
 	cd /Users/hanchen/Documents/XTP_API_20180305_1.1.16.20-clang/demo/XTPApiDemo-1.1.16.20 && $(MAKE) -f src/CMakeFiles/XTPApiDemo.dir/build.make src/CMakeFiles/XTPApiDemo.dir/quote_spi.cpp.s
 .PHONY : quote_spi.cpp.s
 
+strategy.o: strategy.cpp.o
+
+.PHONY : strategy.o
+
+# target to build an object file
+strategy.cpp.o:
+	cd /Users/hanchen/Documents/XTP_API_20180305_1.1.16.20-clang/demo/XTPApiDemo-1.1.16.20 && $(MAKE) -f src/CMakeFiles/XTPApiDemo.dir/build.make src/CMakeFiles/XTPApiDemo.dir/strategy.cpp.o
+.PHONY : strategy.cpp.o
+
+strategy.i: strategy.cpp.i
+
+.PHONY : strategy.i
+
+# target to preprocess a source file
+strategy.cpp.i:
+	cd /Users/hanchen/Documents/XTP_API_20180305_1.1.16.20-clang/demo/XTPApiDemo-1.1.16.20 && $(MAKE) -f src/CMakeFiles/XTPApiDemo.dir/build.make src/CMakeFiles/XTPApiDemo.dir/strategy.cpp.i
+.PHONY : strategy.cpp.i
+
+strategy.s: strategy.cpp.s
+
+.PHONY : strategy.s
+
+# target to generate assembly for a file
+strategy.cpp.s:
+	cd /Users/hanchen/Documents/XTP_API_20180305_1.1.16.20-clang/demo/XTPApiDemo-1.1.16.20 && $(MAKE) -f src/CMakeFiles/XTPApiDemo.dir/build.make src/CMakeFiles/XTPApiDemo.dir/strategy.cpp.s
+.PHONY : strategy.cpp.s
+
 trade_spi.o: trade_spi.cpp.o
 
 .PHONY : trade_spi.o
@@ -251,33 +278,6 @@ trade_spi.s: trade_spi.cpp.s
 trade_spi.cpp.s:
 	cd /Users/hanchen/Documents/XTP_API_20180305_1.1.16.20-clang/demo/XTPApiDemo-1.1.16.20 && $(MAKE) -f src/CMakeFiles/XTPApiDemo.dir/build.make src/CMakeFiles/XTPApiDemo.dir/trade_spi.cpp.s
 .PHONY : trade_spi.cpp.s
-
-utils.o: utils.cpp.o
-
-.PHONY : utils.o
-
-# target to build an object file
-utils.cpp.o:
-	cd /Users/hanchen/Documents/XTP_API_20180305_1.1.16.20-clang/demo/XTPApiDemo-1.1.16.20 && $(MAKE) -f src/CMakeFiles/XTPApiDemo.dir/build.make src/CMakeFiles/XTPApiDemo.dir/utils.cpp.o
-.PHONY : utils.cpp.o
-
-utils.i: utils.cpp.i
-
-.PHONY : utils.i
-
-# target to preprocess a source file
-utils.cpp.i:
-	cd /Users/hanchen/Documents/XTP_API_20180305_1.1.16.20-clang/demo/XTPApiDemo-1.1.16.20 && $(MAKE) -f src/CMakeFiles/XTPApiDemo.dir/build.make src/CMakeFiles/XTPApiDemo.dir/utils.cpp.i
-.PHONY : utils.cpp.i
-
-utils.s: utils.cpp.s
-
-.PHONY : utils.s
-
-# target to generate assembly for a file
-utils.cpp.s:
-	cd /Users/hanchen/Documents/XTP_API_20180305_1.1.16.20-clang/demo/XTPApiDemo-1.1.16.20 && $(MAKE) -f src/CMakeFiles/XTPApiDemo.dir/build.make src/CMakeFiles/XTPApiDemo.dir/utils.cpp.s
-.PHONY : utils.cpp.s
 
 xtp_api_demo.o: xtp_api_demo.cpp.o
 
@@ -325,12 +325,12 @@ help:
 	@echo "... quote_spi.o"
 	@echo "... quote_spi.i"
 	@echo "... quote_spi.s"
+	@echo "... strategy.o"
+	@echo "... strategy.i"
+	@echo "... strategy.s"
 	@echo "... trade_spi.o"
 	@echo "... trade_spi.i"
 	@echo "... trade_spi.s"
-	@echo "... utils.o"
-	@echo "... utils.i"
-	@echo "... utils.s"
 	@echo "... xtp_api_demo.o"
 	@echo "... xtp_api_demo.i"
 	@echo "... xtp_api_demo.s"

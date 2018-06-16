@@ -83,9 +83,22 @@ src/CMakeFiles/XTPApiDemo.dir/quote_spi.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/XTPApiDemo.dir/quote_spi.cpp.s"
 	cd /Users/hanchen/Documents/XTP_API_20180305_1.1.16.20-clang/demo/XTPApiDemo-1.1.16.20/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/hanchen/Documents/XTP_API_20180305_1.1.16.20-clang/demo/XTPApiDemo-1.1.16.20/src/quote_spi.cpp -o CMakeFiles/XTPApiDemo.dir/quote_spi.cpp.s
 
+src/CMakeFiles/XTPApiDemo.dir/strategy.cpp.o: src/CMakeFiles/XTPApiDemo.dir/flags.make
+src/CMakeFiles/XTPApiDemo.dir/strategy.cpp.o: src/strategy.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/hanchen/Documents/XTP_API_20180305_1.1.16.20-clang/demo/XTPApiDemo-1.1.16.20/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/XTPApiDemo.dir/strategy.cpp.o"
+	cd /Users/hanchen/Documents/XTP_API_20180305_1.1.16.20-clang/demo/XTPApiDemo-1.1.16.20/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/XTPApiDemo.dir/strategy.cpp.o -c /Users/hanchen/Documents/XTP_API_20180305_1.1.16.20-clang/demo/XTPApiDemo-1.1.16.20/src/strategy.cpp
+
+src/CMakeFiles/XTPApiDemo.dir/strategy.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/XTPApiDemo.dir/strategy.cpp.i"
+	cd /Users/hanchen/Documents/XTP_API_20180305_1.1.16.20-clang/demo/XTPApiDemo-1.1.16.20/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/hanchen/Documents/XTP_API_20180305_1.1.16.20-clang/demo/XTPApiDemo-1.1.16.20/src/strategy.cpp > CMakeFiles/XTPApiDemo.dir/strategy.cpp.i
+
+src/CMakeFiles/XTPApiDemo.dir/strategy.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/XTPApiDemo.dir/strategy.cpp.s"
+	cd /Users/hanchen/Documents/XTP_API_20180305_1.1.16.20-clang/demo/XTPApiDemo-1.1.16.20/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/hanchen/Documents/XTP_API_20180305_1.1.16.20-clang/demo/XTPApiDemo-1.1.16.20/src/strategy.cpp -o CMakeFiles/XTPApiDemo.dir/strategy.cpp.s
+
 src/CMakeFiles/XTPApiDemo.dir/trade_spi.cpp.o: src/CMakeFiles/XTPApiDemo.dir/flags.make
 src/CMakeFiles/XTPApiDemo.dir/trade_spi.cpp.o: src/trade_spi.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/hanchen/Documents/XTP_API_20180305_1.1.16.20-clang/demo/XTPApiDemo-1.1.16.20/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/XTPApiDemo.dir/trade_spi.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/hanchen/Documents/XTP_API_20180305_1.1.16.20-clang/demo/XTPApiDemo-1.1.16.20/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/XTPApiDemo.dir/trade_spi.cpp.o"
 	cd /Users/hanchen/Documents/XTP_API_20180305_1.1.16.20-clang/demo/XTPApiDemo-1.1.16.20/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/XTPApiDemo.dir/trade_spi.cpp.o -c /Users/hanchen/Documents/XTP_API_20180305_1.1.16.20-clang/demo/XTPApiDemo-1.1.16.20/src/trade_spi.cpp
 
 src/CMakeFiles/XTPApiDemo.dir/trade_spi.cpp.i: cmake_force
@@ -95,19 +108,6 @@ src/CMakeFiles/XTPApiDemo.dir/trade_spi.cpp.i: cmake_force
 src/CMakeFiles/XTPApiDemo.dir/trade_spi.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/XTPApiDemo.dir/trade_spi.cpp.s"
 	cd /Users/hanchen/Documents/XTP_API_20180305_1.1.16.20-clang/demo/XTPApiDemo-1.1.16.20/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/hanchen/Documents/XTP_API_20180305_1.1.16.20-clang/demo/XTPApiDemo-1.1.16.20/src/trade_spi.cpp -o CMakeFiles/XTPApiDemo.dir/trade_spi.cpp.s
-
-src/CMakeFiles/XTPApiDemo.dir/utils.cpp.o: src/CMakeFiles/XTPApiDemo.dir/flags.make
-src/CMakeFiles/XTPApiDemo.dir/utils.cpp.o: src/utils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/hanchen/Documents/XTP_API_20180305_1.1.16.20-clang/demo/XTPApiDemo-1.1.16.20/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/XTPApiDemo.dir/utils.cpp.o"
-	cd /Users/hanchen/Documents/XTP_API_20180305_1.1.16.20-clang/demo/XTPApiDemo-1.1.16.20/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/XTPApiDemo.dir/utils.cpp.o -c /Users/hanchen/Documents/XTP_API_20180305_1.1.16.20-clang/demo/XTPApiDemo-1.1.16.20/src/utils.cpp
-
-src/CMakeFiles/XTPApiDemo.dir/utils.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/XTPApiDemo.dir/utils.cpp.i"
-	cd /Users/hanchen/Documents/XTP_API_20180305_1.1.16.20-clang/demo/XTPApiDemo-1.1.16.20/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/hanchen/Documents/XTP_API_20180305_1.1.16.20-clang/demo/XTPApiDemo-1.1.16.20/src/utils.cpp > CMakeFiles/XTPApiDemo.dir/utils.cpp.i
-
-src/CMakeFiles/XTPApiDemo.dir/utils.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/XTPApiDemo.dir/utils.cpp.s"
-	cd /Users/hanchen/Documents/XTP_API_20180305_1.1.16.20-clang/demo/XTPApiDemo-1.1.16.20/src && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/hanchen/Documents/XTP_API_20180305_1.1.16.20-clang/demo/XTPApiDemo-1.1.16.20/src/utils.cpp -o CMakeFiles/XTPApiDemo.dir/utils.cpp.s
 
 src/CMakeFiles/XTPApiDemo.dir/xtp_api_demo.cpp.o: src/CMakeFiles/XTPApiDemo.dir/flags.make
 src/CMakeFiles/XTPApiDemo.dir/xtp_api_demo.cpp.o: src/xtp_api_demo.cpp
@@ -126,8 +126,8 @@ src/CMakeFiles/XTPApiDemo.dir/xtp_api_demo.cpp.s: cmake_force
 XTPApiDemo_OBJECTS = \
 "CMakeFiles/XTPApiDemo.dir/FileUtils.cpp.o" \
 "CMakeFiles/XTPApiDemo.dir/quote_spi.cpp.o" \
+"CMakeFiles/XTPApiDemo.dir/strategy.cpp.o" \
 "CMakeFiles/XTPApiDemo.dir/trade_spi.cpp.o" \
-"CMakeFiles/XTPApiDemo.dir/utils.cpp.o" \
 "CMakeFiles/XTPApiDemo.dir/xtp_api_demo.cpp.o"
 
 # External object files for target XTPApiDemo
@@ -135,8 +135,8 @@ XTPApiDemo_EXTERNAL_OBJECTS =
 
 api/XTPApiDemo: src/CMakeFiles/XTPApiDemo.dir/FileUtils.cpp.o
 api/XTPApiDemo: src/CMakeFiles/XTPApiDemo.dir/quote_spi.cpp.o
+api/XTPApiDemo: src/CMakeFiles/XTPApiDemo.dir/strategy.cpp.o
 api/XTPApiDemo: src/CMakeFiles/XTPApiDemo.dir/trade_spi.cpp.o
-api/XTPApiDemo: src/CMakeFiles/XTPApiDemo.dir/utils.cpp.o
 api/XTPApiDemo: src/CMakeFiles/XTPApiDemo.dir/xtp_api_demo.cpp.o
 api/XTPApiDemo: src/CMakeFiles/XTPApiDemo.dir/build.make
 api/XTPApiDemo: src/CMakeFiles/XTPApiDemo.dir/link.txt

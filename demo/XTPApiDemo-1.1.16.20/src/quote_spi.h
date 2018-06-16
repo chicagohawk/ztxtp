@@ -3,6 +3,7 @@
 #include <fstream>
 #include <time.h>
 #include <sys/timeb.h>
+#include <vector>
 #ifdef _WIN32
 #include <windows.h>
 #else
@@ -10,6 +11,8 @@
 #endif // _WIN32
 
 #define NUM_OF_ROUND 1
+
+#include "strategy.h"
 
 using namespace XTP::API;
 
@@ -29,9 +32,12 @@ public:
 	///        0x2003 收到错误报文
 	virtual void OnDisconnected(int reason);
 
-///错误应答
+    ///错误应答
 	virtual void OnError(XTPRI *error_info,bool is_last);
 
+	/// strategy registry
+    std::vector<Strategy*> strat_observers;
+    void registerStrategy(Strategy * strat);
 
 	virtual void OnSubMarketData(XTPST *ticker, XTPRI *error_info, bool is_last);
 	virtual void OnUnSubMarketData(XTPST *ticker, XTPRI *error_info, bool is_last);

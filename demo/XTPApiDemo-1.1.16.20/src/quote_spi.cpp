@@ -1,9 +1,7 @@
 #include "quote_spi.h"
 #include <iostream>
 #include <stdio.h>
-#include "utils.h"
 using namespace std;
-
 
 
 void MyQuoteSpi::OnError(XTPRI *error_info, bool is_last)
@@ -18,6 +16,10 @@ MyQuoteSpi::MyQuoteSpi()
 
 MyQuoteSpi::~MyQuoteSpi()
 {
+}
+
+void MyQuoteSpi::registerStrategy(Strategy * strat){
+    strat_observers.push_back(strat);
 }
 
 void MyQuoteSpi::OnDisconnected(int reason)
@@ -40,14 +42,13 @@ void MyQuoteSpi::OnUnSubMarketData(XTPST *ticker, XTPRI *error_info, bool is_las
 
 void MyQuoteSpi::OnDepthMarketData(XTPMD * market_data, int64_t bid1_qty[], int32_t bid1_count, int32_t max_bid1_count, int64_t ask1_qty[], int32_t ask1_count, int32_t max_ask1_count)
 {
-    int year, mon, day, hour, min, sec, msec;
-    uint64ToDateTime(market_data->data_time, year, mon, day, hour, min, sec, msec);
-    cout << hour << ":" << min << ":" << sec << "." << msec << " >> ";
-    cout << market_data->last_price << " | ";
-    cout << market_data->bid[1] << "," << market_data->bid[0] << " ; ";
-    cout << market_data->ask[0] << "," << market_data->ask[1] << " | ";
-    cout << market_data->bid_qty[1] << "," << market_data->bid_qty[0] << " ; ";
-    cout << market_data->ask_qty[0] << "," << market_data->ask_qty[1] << endl;
+    cout << "SPI CALLBACK" << endl;
+    for(int i=0; i<this->strat_observers.size(); ++i){
+        strat_observers[0]->Quote_OnDepthMarketData(
+                market_data,
+                bid1_qty, bid1_count, max_bid1_count,
+                ask1_qty, ask1_count, max_ask1_count);
+    }
 }
 
 void MyQuoteSpi::OnSubOrderBook(XTPST *ticker, XTPRI *error_info, bool is_last)

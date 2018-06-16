@@ -23,7 +23,7 @@ src/CMakeFiles/XTPApiDemo.dir/FileUtils.cpp.o: include/rapidjson/reader.h
 
 src/CMakeFiles/XTPApiDemo.dir/quote_spi.cpp.o: src/quote_spi.cpp
 src/CMakeFiles/XTPApiDemo.dir/quote_spi.cpp.o: src/quote_spi.h
-src/CMakeFiles/XTPApiDemo.dir/quote_spi.cpp.o: src/utils.h
+src/CMakeFiles/XTPApiDemo.dir/quote_spi.cpp.o: src/strategy.h
 src/CMakeFiles/XTPApiDemo.dir/quote_spi.cpp.o: api/xoms_api_fund_struct.h
 src/CMakeFiles/XTPApiDemo.dir/quote_spi.cpp.o: api/xoms_api_struct.h
 src/CMakeFiles/XTPApiDemo.dir/quote_spi.cpp.o: api/xquote_api_struct.h
@@ -31,6 +31,12 @@ src/CMakeFiles/XTPApiDemo.dir/quote_spi.cpp.o: api/xtp_api_data_type.h
 src/CMakeFiles/XTPApiDemo.dir/quote_spi.cpp.o: api/xtp_api_struct.h
 src/CMakeFiles/XTPApiDemo.dir/quote_spi.cpp.o: api/xtp_api_struct_common.h
 src/CMakeFiles/XTPApiDemo.dir/quote_spi.cpp.o: api/xtp_quote_api.h
+
+src/CMakeFiles/XTPApiDemo.dir/strategy.cpp.o: src/strategy.cpp
+src/CMakeFiles/XTPApiDemo.dir/strategy.cpp.o: src/strategy.h
+src/CMakeFiles/XTPApiDemo.dir/strategy.cpp.o: api/xquote_api_struct.h
+src/CMakeFiles/XTPApiDemo.dir/strategy.cpp.o: api/xtp_api_data_type.h
+src/CMakeFiles/XTPApiDemo.dir/strategy.cpp.o: api/xtp_api_struct_common.h
 
 src/CMakeFiles/XTPApiDemo.dir/trade_spi.cpp.o: src/FileUtils.h
 src/CMakeFiles/XTPApiDemo.dir/trade_spi.cpp.o: src/trade_spi.cpp
@@ -60,12 +66,9 @@ src/CMakeFiles/XTPApiDemo.dir/trade_spi.cpp.o: include/rapidjson/msinttypes/stdi
 src/CMakeFiles/XTPApiDemo.dir/trade_spi.cpp.o: include/rapidjson/rapidjson.h
 src/CMakeFiles/XTPApiDemo.dir/trade_spi.cpp.o: include/rapidjson/reader.h
 
-src/CMakeFiles/XTPApiDemo.dir/utils.cpp.o: src/utils.cpp
-src/CMakeFiles/XTPApiDemo.dir/utils.cpp.o: api/xtp_api_data_type.h
-src/CMakeFiles/XTPApiDemo.dir/utils.cpp.o: api/xtp_api_struct_common.h
-
 src/CMakeFiles/XTPApiDemo.dir/xtp_api_demo.cpp.o: src/FileUtils.h
 src/CMakeFiles/XTPApiDemo.dir/xtp_api_demo.cpp.o: src/quote_spi.h
+src/CMakeFiles/XTPApiDemo.dir/xtp_api_demo.cpp.o: src/strategy.h
 src/CMakeFiles/XTPApiDemo.dir/xtp_api_demo.cpp.o: src/trade_spi.h
 src/CMakeFiles/XTPApiDemo.dir/xtp_api_demo.cpp.o: src/xtp_api_demo.cpp
 src/CMakeFiles/XTPApiDemo.dir/xtp_api_demo.cpp.o: api/xoms_api_fund_struct.h
