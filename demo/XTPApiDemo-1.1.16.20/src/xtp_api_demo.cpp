@@ -16,6 +16,7 @@
 #include "FileUtils.h"
 #include "xtp_quote_api.h"
 #include "quote_spi.h"
+#include "strategy.h"
 
 // global var
 
@@ -141,45 +142,11 @@ int main()
     pUserApi->QueryPosition(tickers[0], session, 0);
     pUserApi->QueryAsset(session, 1);
 
-/*
-    /// make order
-    myOrder.order_client_id = client_id;
-    strcpy(myOrder.ticker, ticker[0]);
-    myOrder.market = XTP_MKT_SH_A;
-    // myOrder.price unset, use onQuote to send orders;
-    myOrder.quantity = 100;
-    myOrder.side = XTP_SIDE_BUY;
-    myOrder.price_type = XTP_PRICE_LIMIT;
-    myOrder.business_type = XTP_BUSINESS_TYPE_CASH;
+    Strategy * strat = new Strategy(
+            qApi, qSpi, pUserApi, pUserSpi, client_id, tickers[0], session);
 
-//    InsertOrder at midpt;
-
-
-
-   			//从配置文件中读取报单信息
-			int j = 0;
-			orderList[i].order_client_id = i;
-			std::string instrument = fileUtils->stdStringForKey("order[%d].instrument_id", j);
-			strcpy(orderList[i].ticker, instrument.c_str());
-			orderList[i].market = (XTP_MARKET_TYPE)fileUtils->intForKey("order[%d].exchange", j);
-			orderList[i].price = fileUtils->floatForKey("order[%d].price", j);
-			orderList[i].quantity = fileUtils->intForKey("order[%d].quantity", j);
-			orderList[i].side = (XTP_SIDE_TYPE)fileUtils->intForKey("order[%d].side", j);
-			orderList[i].price_type = (XTP_PRICE_TYPE)fileUtils->intForKey("order[%d].price_type", j);
-			orderList[i].business_type = (XTP_BUSINESS_TYPE)fileUtils->intForKey("order[%d].business_type", j);
-
-			if (session_array[i] == 0)
-			{
-				//用户登录不成功时，跳过
-				continue;
-			}
-
-			//报单
-			int64_t xtp_id = pUserApi->InsertOrder(&(orderList[i]), session_array[i]);
-			if (xtp_id == 0)
-			{
-*/
     while(true){
+        strat->strategyHeartBeat();
         sleep(1);
     }
 

@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/XTPApiDemo.dir/FileUtils.cpp.o"
   "CMakeFiles/XTPApiDemo.dir/quote_spi.cpp.o"
+  "CMakeFiles/XTPApiDemo.dir/strategy.cpp.o"
   "CMakeFiles/XTPApiDemo.dir/trade_spi.cpp.o"
   "CMakeFiles/XTPApiDemo.dir/xtp_api_demo.cpp.o"
   "../api/XTPApiDemo.pdb"

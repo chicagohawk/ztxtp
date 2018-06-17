@@ -51,7 +51,8 @@ public:
 	virtual void OnQueryAllTickers(XTPQSI* ticker_info, XTPRI *error_info, bool is_last);
 	virtual void OnQueryTickersPriceInfo(XTPTPI* ticker_info, XTPRI *error_info, bool is_last);
 
-    float mitpt;
+	long depthMarketDataNum;
+    float midpt;
 
 private:
 

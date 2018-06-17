@@ -11,7 +11,7 @@ void MyQuoteSpi::OnError(XTPRI *error_info, bool is_last)
 	IsErrorRspInfo(error_info);
 }
 
-MyQuoteSpi::MyQuoteSpi()
+MyQuoteSpi::MyQuoteSpi() : depthMarketDataNum(0)
 {
 }
 
@@ -39,7 +39,9 @@ void MyQuoteSpi::OnUnSubMarketData(XTPST *ticker, XTPRI *error_info, bool is_las
 
 void MyQuoteSpi::OnDepthMarketData(XTPMD * market_data, int64_t bid1_qty[], int32_t bid1_count, int32_t max_bid1_count, int64_t ask1_qty[], int32_t ask1_count, int32_t max_ask1_count)
 {
-    mitpt = (market_data->bid[0] + market_data->ask[0]) * .5;
+    midpt = (market_data->bid[0] + market_data->ask[0]) * .5;
+    depthMarketDataNum ++ ;
+
     cout << market_data->last_price << " | ";
     cout << market_data->bid[1] << "," << market_data->bid[0] << " ; ";
     cout << market_data->ask[0] << "," << market_data->ask[1] << " | ";

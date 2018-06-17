@@ -193,31 +193,25 @@ void MyTraderSpi::OnOrderEvent(XTPOrderInfo *order_info, XTPRI *error_info, uint
 	updateOrderNum();
 	if (order_num%outCount == 0)
 	{
-// 		cout << "Order_XTP_ID:" << order_info->order_xtp_id << endl;
-// 		cout << "Order_status:" << order_info->order_status << endl;
-// 
-// 		int32_t client = pUserApi->GetClientIDByXTPID(order_info->order_xtp_id);
-// 		cout << "Client id:" << client << ", Account:" << pUserApi->GetAccountByXTPID(order_info->order_xtp_id) << endl;
+ 		cout << "Order_XTP_ID:" << order_info->order_xtp_id << endl;
+ 		cout << "Order_status:" << order_info->order_status << endl;
+
+ 		int32_t client = pUserApi->GetClientIDByXTPID(order_info->order_xtp_id);
+ 		cout << "Client id:" << client << ", Account:" << pUserApi->GetAccountByXTPID(order_info->order_xtp_id) << endl;
 
 		cout << "!!!!!!!!!!!!!!!!!!!!! OnOrderEvent total count:" << order_num << "!!!!!!!!!!!!!!!!!!!!!!!!!!!!" << endl;
 	}
 
 	if (save_to_file_)
 	{
-#ifdef WIN32
-		SYSTEMTIME wtm;
-		GetLocalTime(&wtm);
-		fout_order << "[" << wtm.wHour << ":" << wtm.wMinute << ":" << wtm.wSecond << "." << wtm.wMilliseconds << "],";
-#else
 		struct timeval start;
 		gettimeofday(&start, 0);
-//		fout_order << "time:" << start.tv_sec << "." << start.tv_usec << ",";
+		fout_order << "time:" << start.tv_sec << "." << start.tv_usec << ",";
 		struct tm *ptr;
 		time_t lt;
 		lt = time(NULL);
 		ptr = localtime(&lt);
 		fout_order << "[" << ptr->tm_hour << ":" << ptr->tm_min << ":" << ptr->tm_sec << "." << start.tv_usec << "],";
-#endif // WIN32
 
 		fout_order << "xtp_id:" << order_info->order_xtp_id << ",client_id:" << order_info->order_client_id << ",status:" << order_info->order_status << ",cancel_xtp_id:" << order_info->order_cancel_xtp_id << ",cancel_client_id:" << order_info->order_cancel_client_id;
 		fout_order << ",order_submit_status:" << order_info->order_submit_status << ",ticker:" << order_info->ticker << ",market:" << order_info->market << ",price:" << order_info->price;
@@ -227,6 +221,7 @@ void MyTraderSpi::OnOrderEvent(XTPOrderInfo *order_info, XTPRI *error_info, uint
 	}
 
 	//根据报单响应情况来处理，当不是最终状态时，发起撤单，如果是最终状态，就再下一单
+    /*
 	switch (order_info->order_status)
 	{
 	case XTP_ORDER_STATUS_NOTRADEQUEUEING:
@@ -247,7 +242,7 @@ void MyTraderSpi::OnOrderEvent(XTPOrderInfo *order_info, XTPRI *error_info, uint
 	default:
 		break;
 	}
-
+    */
 
 }
 
