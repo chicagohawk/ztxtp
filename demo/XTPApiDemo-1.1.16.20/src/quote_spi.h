@@ -53,6 +53,8 @@ public:
 
 	long depthMarketDataNum;
     float midpt;
+    int auction_qty;
+    int imbl_quantity;  // + if bid imbalance, - if ask imbalance
 
 private:
 

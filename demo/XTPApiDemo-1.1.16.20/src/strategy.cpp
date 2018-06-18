@@ -19,14 +19,30 @@ Strategy::Strategy(XTP::API::QuoteApi * quoteApi,
     tmp_order->order_client_id = client_id;
     strcpy(tmp_order->ticker, ticker);
     this->session = session;
+    edge = 0.05;
 }
 
 
 void Strategy::strategyHeartBeat() {
-    if(!has_open_order && quoteSpi->depthMarketDataNum > 0){
+
+    lt = time(NULL);
+    ptr = localtime(&lt);
+
+    if(!is_pre_open && ptr->tm_hour > 21 && ptr->tm_min >= 15){
+        is_pre_open = true;
+    }
+
+    if(is_pre_open && !is_auction_cutoff &&
+            ptr->tm_min >= 24 && ptr->tm_sec >=52){
+        is_auction_cutoff = true;
         has_open_order = true;
-        submitOrder(XTP_MKT_SH_A, 100, XTP_SIDE_BUY,
-                    floorf(quoteSpi->midpt*100)/100);
+
+        int64_t quantity = ceil((float)quoteSpi->auction_qty / 100. * .1) * 100;    // 10% participation
+        float bid_price = floorf( (quoteSpi->midpt - edge) *100 ) / 100;
+        float ask_price = floorf( (quoteSpi->midpt + edge) *100 ) / 100;
+
+        submitOrder(XTP_MKT_SH_A, quantity, XTP_SIDE_BUY, bid_price);
+        submitOrder(XTP_MKT_SH_A, quantity, XTP_SIDE_SELL, ask_price);
     }
 }
 

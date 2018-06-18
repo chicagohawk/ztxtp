@@ -8,6 +8,8 @@
 #include "xoms_api_struct.h"
 #include "xtp_api_data_type.h"
 #include <math.h>
+#include <ctime>
+#include <sys/time.h>
 
 class Strategy{
     public:
@@ -18,6 +20,14 @@ class Strategy{
 
         uint8_t client_id;
         uint64_t session;
+
+        // system time, CHANGE TO CHINA TIMEZONE AT DEPLOY!
+        // ptr->tm_hour, ptr->tm_min, ptr->tm_sec, start.tv_usec
+		struct tm *ptr;
+		time_t lt;
+
+       	bool is_pre_open;
+       	bool is_auction_cutoff;
 
         Strategy(XTP::API::QuoteApi * quoteApi,
                  MyQuoteSpi * quoteSpi,
@@ -34,6 +44,7 @@ class Strategy{
 
         void submitOrder(XTP_MARKET_TYPE market_name, int64_t quantity,
                          XTP_SIDE_TYPE side, float price);
+        float edge;
 
 };
 
