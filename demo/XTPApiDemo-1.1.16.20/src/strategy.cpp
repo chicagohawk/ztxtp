@@ -20,6 +20,8 @@ Strategy::Strategy(XTP::API::QuoteApi * quoteApi,
     strcpy(tmp_order->ticker, ticker);
     this->session = session;
     edge = 0.05;
+    priceEMA = 0.;
+    coefEMA = .002;
 }
 
 
@@ -28,12 +30,22 @@ void Strategy::strategyHeartBeat() {
     lt = time(NULL);
     ptr = localtime(&lt);
 
+    if(priceEMA == 0. && is_pre_open && quoteSpi->auction_qty>0){
+        // first-time set priceEMA
+        priceEMA = quoteSpi->midpt;
+    }
+
+    if(is_pre_open){
+        priceEMA = priceEMA * (1-coefEMA) + quoteSpi->midpt * coefEMA;
+    }
+
     if(!is_pre_open && ptr->tm_hour > 21 && ptr->tm_min >= 15){
         is_pre_open = true;
     }
 
+    // CHANGE tm_hour TO 21 (USA) or 9 (CHINA) !
     if(is_pre_open && !is_auction_cutoff &&
-            ptr->tm_min >= 24 && ptr->tm_sec >=52){
+            ptr->tm_hour > 22 && ptr->tm_min >= 24 && ptr->tm_sec >=52){
         is_auction_cutoff = true;
         has_open_order = true;
 
@@ -41,8 +53,12 @@ void Strategy::strategyHeartBeat() {
         float bid_price = floorf( (quoteSpi->midpt - edge) *100 ) / 100;
         float ask_price = floorf( (quoteSpi->midpt + edge) *100 ) / 100;
 
-        submitOrder(XTP_MKT_SH_A, quantity, XTP_SIDE_BUY, bid_price);
-        submitOrder(XTP_MKT_SH_A, quantity, XTP_SIDE_SELL, ask_price);
+        if(quoteSpi->midpt > priceEMA + .02) {
+            submitOrder(XTP_MKT_SH_A, quantity, XTP_SIDE_BUY, bid_price);
+        }
+        else if (quoteSpi->midpt < priceEMA - .02) {
+            submitOrder(XTP_MKT_SH_A, quantity, XTP_SIDE_SELL, ask_price);
+        }
     }
 }
 

@@ -45,6 +45,7 @@ class Strategy{
         void submitOrder(XTP_MARKET_TYPE market_name, int64_t quantity,
                          XTP_SIDE_TYPE side, float price);
         float edge;
+        float priceEMA;  float coefEMA;
 
 };
 
