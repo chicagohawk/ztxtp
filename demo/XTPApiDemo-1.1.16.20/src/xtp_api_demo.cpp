@@ -147,7 +147,7 @@ int main()
 
     while(true){
         strat->strategyHeartBeat();
-        sleep(1);
+        sleep(5);
     }
 
 }

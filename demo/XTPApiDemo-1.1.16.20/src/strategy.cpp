@@ -25,10 +25,26 @@ Strategy::Strategy(XTP::API::QuoteApi * quoteApi,
 }
 
 
-void Strategy::strategyHeartBeat() {
-
+void Strategy::setRegime() {
     lt = time(NULL);
     ptr = localtime(&lt);
+
+    if(!is_pre_open && ptr->tm_hour > 21 && ptr->tm_min >= 15){
+        is_pre_open = true;
+    }
+
+    // CHANGE tm_hour TO 21 (USA) or 9 (CHINA) !
+    if(is_pre_open && !is_auction_cutoff &&
+            ptr->tm_hour > 21 && ptr->tm_min >= 24) {
+        is_auction_cutoff = true;
+    }
+}
+
+
+void Strategy::strategyHeartBeat() {
+
+    std::cout << "priceEMA: " << priceEMA << std::endl;
+    setRegime();
 
     if(priceEMA == 0. && is_pre_open && quoteSpi->auction_qty>0){
         // first-time set priceEMA
@@ -39,26 +55,14 @@ void Strategy::strategyHeartBeat() {
         priceEMA = priceEMA * (1-coefEMA) + quoteSpi->midpt * coefEMA;
     }
 
-    if(!is_pre_open && ptr->tm_hour > 21 && ptr->tm_min >= 15){
-        is_pre_open = true;
-    }
-
-    // CHANGE tm_hour TO 21 (USA) or 9 (CHINA) !
-    if(is_pre_open && !is_auction_cutoff &&
-            ptr->tm_hour > 22 && ptr->tm_min >= 24 && ptr->tm_sec >=52){
-        is_auction_cutoff = true;
-        has_open_order = true;
-
+    if (is_pre_open && is_auction_cutoff && !has_open_order) {
         int64_t quantity = ceil((float)quoteSpi->auction_qty / 100. * .1) * 100;    // 10% participation
         float bid_price = floorf( (quoteSpi->midpt - edge) *100 ) / 100;
         float ask_price = floorf( (quoteSpi->midpt + edge) *100 ) / 100;
 
-        if(quoteSpi->midpt > priceEMA + .02) {
-            submitOrder(XTP_MKT_SH_A, quantity, XTP_SIDE_BUY, bid_price);
-        }
-        else if (quoteSpi->midpt < priceEMA - .02) {
-            submitOrder(XTP_MKT_SH_A, quantity, XTP_SIDE_SELL, ask_price);
-        }
+        has_open_order = true;
+        submitOrder(XTP_MKT_SH_A, quantity, XTP_SIDE_BUY, bid_price);
+        submitOrder(XTP_MKT_SH_A, quantity, XTP_SIDE_SELL, ask_price);
     }
 }
 
@@ -66,7 +70,11 @@ void Strategy::strategyHeartBeat() {
 void Strategy::submitOrder(XTP_MARKET_TYPE market_name, int64_t quantity,
                  XTP_SIDE_TYPE side, float price)
 {
+    std::cout << "Order sent on strategy heartbeat:" << std::endl;
     std::cout << "ticker is: " << tmp_order->ticker << std::endl;
+    std::cout << price << " | " << quantity << std::endl;
+    std::cout << side << std::endl;
+
     tmp_order->order_client_id = client_id;
     tmp_order->market = XTP_MKT_SH_A;
     tmp_order->price = price;
