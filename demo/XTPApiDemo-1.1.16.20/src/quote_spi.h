@@ -1,5 +1,6 @@
 #pragma once
 #include "xtp_quote_api.h"
+#include "xtp_api_data_type.h"
 #include <fstream>
 #include <time.h>
 #include <sys/timeb.h>
@@ -12,6 +13,9 @@
 #define NUM_OF_ROUND 1
 
 using namespace XTP::API;
+
+extern XTP::API::QuoteApi *qApi;
+extern char ** tickers;
 
 // We can subclass multiple SPIs from QuoteSpi
 class MyQuoteSpi : public QuoteSpi

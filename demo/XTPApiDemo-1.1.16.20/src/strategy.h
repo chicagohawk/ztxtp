@@ -41,8 +41,8 @@ class Strategy{
 
         bool has_open_order;
 
-        // THIS SHOULD BE CHANGED TO VECTOR<order insert info> TO KEEP TRACK OF ORDER_ID !
         XTPOrderInsertInfo * tmp_order;       // stores the current order to submit
+		uint64_t tmp_xtp_order_id;
 
         void submitOrder(XTP_MARKET_TYPE market_name, int64_t quantity,
                          XTP_SIDE_TYPE side, float price);
@@ -50,6 +50,7 @@ class Strategy{
         float priceEMA;  float coefEMA;
 
         void setRegime();
+        int nowDepthMarketDataNum;
 };
 
 #endif //PROJECT_STRATEGY_H

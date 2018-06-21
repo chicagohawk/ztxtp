@@ -195,6 +195,9 @@ void MyTraderSpi::OnOrderEvent(XTPOrderInfo *order_info, XTPRI *error_info, uint
 	{
  		cout << "Order_XTP_ID:" << order_info->order_xtp_id << endl;
  		cout << "Order_status:" << order_info->order_status << endl;
+	    cout << "update time:" << order_info->update_time << endl;
+	    cout << "qty_traded:" << order_info->qty_traded << endl;
+        cout << "qty_left:" << order_info->qty_left << endl;
 
  		int32_t client = pUserApi->GetClientIDByXTPID(order_info->order_xtp_id);
  		cout << "Client id:" << client << ", Account:" << pUserApi->GetAccountByXTPID(order_info->order_xtp_id) << endl;
@@ -267,6 +270,12 @@ void MyTraderSpi::OnTradeEvent(XTPTradeReport *trade_info, uint64_t session_id)
 
 	if (trade_num%outCount == 0)
 	{
+	    cout << "order_xtp_id:" << trade_info->order_xtp_id << endl;
+	    cout << "exec_id:" << trade_info->exec_id << endl;
+	    cout << "trade_type:" << trade_info->trade_type << endl;
+	    cout << "quantity:" << trade_info->quantity << endl;
+        cout << "price:" << trade_info->price << endl;
+	    cout << "trade_time:" << trade_info->trade_time << endl;
 		cout << "!!!!!!!!!!!!!!!!!!!!! OnTradeEvent total count:" << trade_num << "!!!!!!!!!!!!!!!!!!!!!" << endl;
 	}
 
@@ -304,7 +313,12 @@ void MyTraderSpi::OnCancelOrderError(XTPOrderCancelInfo * cancel_info, XTPRI * e
 	{
 		fout_cancel_order << "cancel_order_xtp_id:" << cancel_info->order_cancel_xtp_id << ",order_xtp_id:" << cancel_info->order_xtp_id << ",error_id:" << error_info->error_id << ",msg:" << error_info->error_msg << endl;
 	}
-}
+	cout << "________ OnCancelOrderError _________" << endl;
+	cout << "order_cancel_xtp_id: " << cancel_info->order_cancel_xtp_id << endl;
+	cout << "order_xtp_id: " << cancel_info->order_xtp_id << endl;
+	cout << "error_info: " << error_info->error_msg << endl;
+    cout << "_____________________________________" << endl;
+};
 
 void MyTraderSpi::OnQueryOrder(XTPQueryOrderRsp * order_info, XTPRI * error_info, int request_id, bool is_last, uint64_t session_id)
 {
@@ -333,6 +347,17 @@ void MyTraderSpi::OnQueryOrder(XTPQueryOrderRsp * order_info, XTPRI * error_info
 		fout_qry_order << ",insert_time:" << order_info->insert_time << ",update_time:" << order_info->update_time << ",cancel_time:" << order_info->cancel_time << ",trade_amount:" << order_info->trade_amount;
 		fout_qry_order << ",order_local_id:" << order_info->order_local_id << ",order_type:" << order_info->order_type <<",error_id:" << error_info->error_id << ",error_msg:" << error_info->error_msg << endl;
 	}
+	cout << "----------- OnQueryOrderRsp ----------------" << endl;
+	cout << "xtp_id:" << order_info->order_xtp_id << ",client_id:" << order_info->order_client_id << ",status:" << order_info->order_status << ",cancel_xtp_id:" << order_info->order_cancel_xtp_id << ",cancel_client_id:" << order_info->order_cancel_client_id;
+	cout << ",order_submit_status:" << order_info->order_submit_status << ",ticker:" << order_info->ticker << ",market:" << order_info->market << ",price:" << order_info->price;
+	cout << ",quantity:" << order_info->quantity << ",price_type:" << order_info->price_type << ",side:" << order_info->side << ",qty_traded:" << order_info->qty_traded << ",qty_left:" << order_info->qty_left;
+	cout << ",insert_time:" << order_info->insert_time << ",update_time:" << order_info->update_time << ",cancel_time:" << order_info->cancel_time << ",trade_amount:" << order_info->trade_amount;
+	cout << ",order_local_id:" << order_info->order_local_id << ",order_type:" << order_info->order_type <<",error_id:" << error_info->error_id << ",error_msg:" << error_info->error_msg << endl;
+    cout << "--------------------------------------------" << endl;
+
+    if((order_info->qty_left>0) && (order_info->order_status==2)){
+        pUserApi->CancelOrder(order_info->order_xtp_id, session_id);
+    }
 }
 
 void MyTraderSpi::OnQueryTrade(XTPQueryTradeRsp * trade_info, XTPRI * error_info, int request_id, bool is_last, uint64_t session_id)

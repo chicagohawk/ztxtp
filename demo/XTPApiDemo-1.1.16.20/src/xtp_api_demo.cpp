@@ -17,8 +17,11 @@
 #include "xtp_quote_api.h"
 #include "quote_spi.h"
 #include "strategy.h"
-
+#include "xtp_api_data_type.h"
 // global var
+
+// tickers MUST BE A GLOBAL VARIABLE IN PROD DESIGN!
+char **tickers = new char*[0];
 
 XTP::API::TraderApi* pUserApi;
 bool is_connected_ = false;
@@ -34,7 +37,7 @@ int quote_server_port;
 std::string quote_username;
 std::string quote_password;
 XTP_PROTOCOL_TYPE quote_protocol = XTP_PROTOCOL_UDP;
-
+XTP::API::QuoteApi *qApi;
 
 int main()
 {
@@ -52,8 +55,7 @@ int main()
     int heart_beat_interval = 15;
     XTP_PROTOCOL_TYPE quote_protocol = XTP_PROTOCOL_TCP;
 
-    XTP::API::QuoteApi *qApi = XTP::API::QuoteApi::CreateQuoteApi(
-            client_id, log_path.c_str());
+    qApi = XTP::API::QuoteApi::CreateQuoteApi(client_id, log_path.c_str());
 
     MyQuoteSpi *qSpi = new MyQuoteSpi();
     qApi->RegisterSpi(qSpi);
@@ -97,12 +99,14 @@ int main()
     std::cout << "Trading day: " << qApi->GetTradingDay() << std::endl;
 
     /// Ticker setup
-    char **tickers = new char*[0];
-    tickers[0] = new char [64];
-    std::strcpy(tickers[0], std::string("600120").c_str());
+    tickers[0] = new char [XTP_TICKER_LEN];
+    tickers[1] = new char [XTP_TICKER_LEN];
+    std::strcpy(tickers[0], std::string("600000").c_str());
+    std::strcpy(tickers[1], std::string("000001").c_str());
 
     XTP_EXCHANGE_TYPE quote_exchange = XTP_EXCHANGE_SH;
     qApi->SubscribeMarketData(tickers, 1, quote_exchange);
+    // qApi->SubscribeMarketData(tickers, 1, XTP_EXCHANGE_SZ);
     std::cout << "last_price | B2, B1; A1, A2 | QB2, QB1; QA1, QA2" << std::endl;
 
 
@@ -131,6 +135,7 @@ int main()
     uint64_t session = pUserApi->Login(
             trade_server_ip.c_str(), trade_port, user_name.c_str(), password.c_str(),
             XTP_PROTOCOL_TCP);
+    std::cout << "session:" << session << std::endl;
     if (session>0)
         map_session.insert(std::make_pair(session, 0));
     else {
@@ -145,9 +150,10 @@ int main()
     Strategy * strat = new Strategy(
             qApi, qSpi, pUserApi, pUserSpi, client_id, tickers[0], session);
 
+    // todo: make heartbeat based on callbacks not on time intervals
     while(true){
         strat->strategyHeartBeat();
-        sleep(5);
+        sleep(1);
     }
 
 }

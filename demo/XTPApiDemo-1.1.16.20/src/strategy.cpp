@@ -22,6 +22,8 @@ Strategy::Strategy(XTP::API::QuoteApi * quoteApi,
     edge = 0.05;
     priceEMA = 0.;
     coefEMA = .002;
+    nowDepthMarketDataNum = 0;
+    tmp_xtp_order_id = 0;
 }
 
 
@@ -29,40 +31,57 @@ void Strategy::setRegime() {
     lt = time(NULL);
     ptr = localtime(&lt);
 
-    if(!is_pre_open && ptr->tm_hour > 21 && ptr->tm_min >= 15){
+
+    std::cout << "is_pre_open:" << is_pre_open << std::endl;
+    std::cout << "is_auction_cutoff:" << is_auction_cutoff << std::endl;
+    std::cout << ptr->tm_hour << ":" << ptr->tm_min << std::endl;
+
+    if(!is_pre_open && (ptr->tm_hour >= 1)){
         is_pre_open = true;
     }
 
     // CHANGE tm_hour TO 21 (USA) or 9 (CHINA) !
-    if(is_pre_open && !is_auction_cutoff &&
-            ptr->tm_hour > 21 && ptr->tm_min >= 24) {
+    if(is_pre_open && (!is_auction_cutoff) && (ptr->tm_hour >= 1)) {
         is_auction_cutoff = true;
     }
+
+    std::cout << "pre_open:" << is_pre_open << " ; ";
+    std::cout << "auction_cutoff:" << is_auction_cutoff << std::endl;
+
+
 }
 
 
 void Strategy::strategyHeartBeat() {
+    if (quoteSpi->depthMarketDataNum == nowDepthMarketDataNum) {
+        return;
+    }
+    nowDepthMarketDataNum = quoteSpi->depthMarketDataNum;   // only hearbeat when necessary
 
     std::cout << "priceEMA: " << priceEMA << std::endl;
     setRegime();
 
-    if(priceEMA == 0. && is_pre_open && quoteSpi->auction_qty>0){
+    if (priceEMA == 0. && is_pre_open && quoteSpi->auction_qty > 0) {
         // first-time set priceEMA
         priceEMA = quoteSpi->midpt;
     }
 
-    if(is_pre_open){
-        priceEMA = priceEMA * (1-coefEMA) + quoteSpi->midpt * coefEMA;
+    if (is_pre_open) {
+        priceEMA = priceEMA * (1 - coefEMA) + quoteSpi->midpt * coefEMA;
     }
 
     if (is_pre_open && is_auction_cutoff && !has_open_order) {
-        int64_t quantity = ceil((float)quoteSpi->auction_qty / 100. * .1) * 100;    // 10% participation
-        float bid_price = floorf( (quoteSpi->midpt - edge) *100 ) / 100;
-        float ask_price = floorf( (quoteSpi->midpt + edge) *100 ) / 100;
+        int64_t quantity = ceil((float) quoteSpi->auction_qty / 100. * .1) * 100;    // 10% participation
+        float bid_price = floorf((quoteSpi->midpt - edge) * 100) / 100;
+        float ask_price = floorf((quoteSpi->midpt + edge) * 100) / 100;
 
         has_open_order = true;
         submitOrder(XTP_MKT_SH_A, quantity, XTP_SIDE_BUY, bid_price);
-        submitOrder(XTP_MKT_SH_A, quantity, XTP_SIDE_SELL, ask_price);
+//        submitOrder(XTP_MKT_SH_A, quantity, XTP_SIDE_SELL, ask_price);
+    }
+    if (tmp_xtp_order_id != 0) {
+        std::cout << "^^^^^^^^^^^ Query Order: " << tmp_xtp_order_id << std::endl;
+        traderApi->QueryOrderByXTPID(tmp_xtp_order_id, session, 17);    // request_id=17
     }
 }
 
@@ -75,12 +94,18 @@ void Strategy::submitOrder(XTP_MARKET_TYPE market_name, int64_t quantity,
     std::cout << price << " | " << quantity << std::endl;
     std::cout << side << std::endl;
 
-    tmp_order->order_client_id = client_id;
+    tmp_order->order_client_id = 3; //client_id;
     tmp_order->market = XTP_MKT_SH_A;
     tmp_order->price = price;
     tmp_order->quantity = quantity;
     tmp_order->side = XTP_SIDE_BUY;  // XTP_SIDE_TYPE
     tmp_order->price_type = XTP_PRICE_LIMIT;
     tmp_order->business_type = XTP_BUSINESS_TYPE_CASH;
-    traderApi->InsertOrder(tmp_order, session);
+    uint64_t xtp_order_id = traderApi->InsertOrder(tmp_order, session);
+    std::cout << "Insert order ID:" << xtp_order_id << std::endl;
+
+    if(xtp_order_id != 0){
+        tmp_xtp_order_id = xtp_order_id;
+    }
 }
+
